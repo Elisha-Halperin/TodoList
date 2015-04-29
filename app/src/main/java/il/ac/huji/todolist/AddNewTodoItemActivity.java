@@ -14,6 +14,9 @@ import java.util.Calendar;
 
 public class AddNewTodoItemActivity extends Activity {
 
+    public static final String TITLE = "title";
+    public static final String DATE = "dueDate";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +37,10 @@ public class AddNewTodoItemActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent result = new Intent();
-                result.putExtra("title", edTxt.getText().toString());
+                result.putExtra(TITLE, edTxt.getText().toString());
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(date.getYear(), date.getMonth(), date.getDayOfMonth());
-                result.putExtra("dueDate", calendar.getTime());
+                result.putExtra(DATE, calendar.getTime());
                 setResult(RESULT_OK, result);
                 finish();
             }
